@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-from Assimilator import DivideAndConquerAssimilator
+from BaseAssimilator import Assimilator
 
 if __name__ == "__main__":
-    assimilator = DivideAndConquerAssimilator()
+    assimilator = Assimilator()
     assimilator.run()

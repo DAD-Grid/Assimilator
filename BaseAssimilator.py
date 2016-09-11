@@ -20,7 +20,7 @@ def abstract():
     caller = inspect.getouterframes(inspect.currentframe())[1][3]
     raise NotImplementedError(caller + ' must be implemented in subclass')
 
-class Assimilator():
+class Assimilator(object):
     '''
     Use this class to create new pure-Python Assimilators.
     To create a new assimilator:
@@ -104,16 +104,13 @@ class Assimilator():
         return result
     
     def assimilate_handler(self, wu, results, canonical_result):
-        """
-        This method is called for each workunit (wu) that needs to be
-        processed. A canonical result is not guarenteed and several error
-        conditions may be present on the wu. Call report_errors(wu) when
-        overriding this method.
-        
-        Note that the -noinsert flag (self.noinsert) must be accounted for when
-        overriding this method.
-        """
-        abstract()
+        print "Workunit"
+        self.logNormal(dir(wu))
+        self.logNormal("results")
+        self.logNormal(dir(results))
+        self.logNormal("canonical_result")
+        self.logNormal(canonical_result)
+        self.report_errors(wu)
         
     def report_errors(self, wu):
         """
