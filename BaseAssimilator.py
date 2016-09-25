@@ -104,14 +104,17 @@ class Assimilator(object):
         return result
     
     def assimilate_handler(self, wu, results, canonical_result):
-        print "Workunit"
-        self.logNormal(dir(wu))
-        self.logNormal("results")
-        self.logNormal(dir(results))
-        self.logNormal("canonical_result")
-        self.logNormal(canonical_result)
-        self.report_errors(wu)
-        
+        if canonical_result is not None:
+            path = self.get_file_path(canonical_result)
+            subprocess.call(["cp", path, "/home/boincadm/results/"+wu.name ])
+            path, dirs, files = os.walk("/home/boincadm/results/").next()
+            count = len(files)
+            self.logNormal("van %i\n" % count)
+            if count == 100:
+                #ya acabo
+                subprocess.call(["./mergeImage","5458","2915","10","10","/home/boincadm/results/"])
+
+
     def report_errors(self, wu):
         """
         Writes error logs based on the workunit (wu) error_mask field.
