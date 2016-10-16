@@ -24,7 +24,7 @@ class ConcreteObserver(BaseObserver):
         print "Llega un resultado de %s" % result_path
         # se copia el resultado a la carpeta de resultados
         subprocess.call(["cp", result_path, "/home/boincadm/results/"+wu.name ])
-        if self.count == count_stop:
+        if self.count == self.count_stop:
             print "se finaliza la aplicacion"
             sys.exit()
             #aca se puede llamar al que recopila los resultados antes de terminar
