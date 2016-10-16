@@ -108,7 +108,6 @@ class Assimilator(object):
             path = self.get_file_path(canonical_result)
             subprocess.call(["cp", path, "/home/boincadm/results/"+wu.name ])
             path, dirs, files = os.walk("/home/boincadm/results/").next()
-            count = len(files)
             self.logNormal("van %i\n" % count)
             if count == 100:
                 #ya acabo
