@@ -6,7 +6,6 @@ from ConcreteObserver import ConcreteObserver
 if __name__ == "__main__":
     # se crea un observador y un asimilador
     concrete_observer = ConcreteObserver(count_stop = 100)
-    concrete_observer.notify("mi path", "mi wu")
     assimilator = ConcreteAssimilator()
     # se le registra el observador al asimilador y se corre el asimilador
     assimilator.register_observer(concrete_observer)
